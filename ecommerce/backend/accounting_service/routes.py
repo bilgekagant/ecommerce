@@ -14,16 +14,18 @@ import uuid
 @accounting_bp.route('/users', methods=['POST'])
 def register_user():
     data = request.get_json()
-    hashed_password = generate_password_hash(data['password'], method='sha256')
-    new_user = User(email=data['email'], password_hash=hashed_password, username=data['username'])
-    db.session.add(new_user)
+    if User.query.filter_by(email=data['email']).first():
+        return jsonify({'message': 'Email already registered'}), 409
+    user = User(email=data['email'], username=data['username'])
+    user.set_password(data['password'])
+    db.session.add(user)
     db.session.commit()
-    return jsonify({'message': 'New user created!'}), 201
+    return jsonify({'user_id': user.user_id, 'username': user.username, 'email': user.email}), 20
 
 @accounting_bp.route('/users/login', methods=['POST'])
 def login_user():
     data = request.get_json()
     user = User.query.filter_by(email=data['email']).first()
-    if user and check_password_hash(user.password_hash, data['password']):
-        return jsonify({'message': 'Login successful!'}), 200
-    return jsonify({'message': 'Invalid username or password'}), 401
+    if user and user.check_password(data['password']):
+        return jsonify({'message': 'Login successful', 'user_id': user.user_id}), 200
+    return jsonify({'message': 'Invalid email or password'}), 401
