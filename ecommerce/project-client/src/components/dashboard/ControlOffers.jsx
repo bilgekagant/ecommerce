@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 function ControlOffers() {
   const { isSubmitting, setIsSubmitting } = useSubmitContext();
   const { offers, setOffers } = useOfferContext();
-  const apiImagesUrl = "https://localhost:44350/uploads/images/";
+  const apiImagesUrl = "https://localhost:7153/uploads/images/";
 
   useEffect(() => {
     setIsSubmitting(false);

@@ -47,6 +47,7 @@ export default function App() {
               <Route path="/payment/offer/:offerId" element={<Payment />} />
               <Route path="/dashboard/*" element={<Dashboard />} />
               <Route path="/addProduct" element={<AddProduct />} />
+              <Route path="/addProduct2" element={<AddProduct />} />
               <Route path="/updateProduct/:id" element={<UpdateProduct />} />
               <Route path="/updateUser/:id" element={<UpdateUser />} />
               <Route path="/profile/*" element={<Profile />} />

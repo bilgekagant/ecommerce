@@ -14,7 +14,7 @@ import { useSubmitContext } from "../../context/SubmitContext";
 
 function ControlProducts() {
   const { products, setProducts } = useProductContext();
-  const apiImagesUrl = "https://localhost:44350/uploads/images/";
+  const apiImagesUrl = "https://localhost:7153/uploads/images/";
   const { isSubmitting, setIsSubmitting } = useSubmitContext();
   useEffect(() => {
     setIsSubmitting(false);
