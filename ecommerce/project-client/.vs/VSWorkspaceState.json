@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\footer",
+    "\\src\\components\\home\\category",
+    "\\src\\components\\home\\color",
+    "\\src\\components\\home\\usingState",
+    "\\src\\pages",
+    "\\src\\pages\\login",
+    "\\src\\pages\\product"
+  ],
+  "SelectedNode": "\\src\\pages\\home\\Home.jsx",
+  "PreviewInSolutionExplorer": false
+}
