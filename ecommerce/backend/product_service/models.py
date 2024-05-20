@@ -1,16 +1,20 @@
+# products.models
+from extensions import db
+from sqlalchemy.dialects.postgresql import UUID, JSONB, ARRAY
+from sqlalchemy.ext.declarative import declarative_base
 import uuid
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+Base = declarative_base()
+metadata = Base.metadata
 
 class Product(db.Model):
-    product_id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    name = db.Column(db.String(255), nullable=False)
-    brand = db.Column(db.String(100))
-    model = db.Column(db.String(100))
-    year = db.Column(db.Integer)
-    condition = db.Column(db.String(100))
-    images = db.Column(db.ARRAY(db.String))  # Array of image URLs
+    product_id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    name = db.Column(db.String(80), nullable=False)
+    brand = db.Column(db.String(80), nullable=False)
+    model = db.Column(db.String(80), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    condition = db.Column(db.String(80), nullable=False)
+    images = db.Column(ARRAY(db.String), nullable=True)
 
     def __repr__(self):
         return f'<Product {self.name}>'
