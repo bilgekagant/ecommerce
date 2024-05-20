@@ -10,7 +10,7 @@ function Footer() {
       </div>
       <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
         <p>Türkiye'de ikinci el eşya al ve sat</p>
-        <p>© 2022 - 2023 ALSAT</p>
+        <p>© 2023 - 2024 WANTED</p>
       </div>
     </div>
   );

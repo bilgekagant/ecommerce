@@ -31,13 +31,7 @@ function Home() {
             className="btn px-10 text-base rounded-2xl py-3 font-bold mr-6 text-center flex justify-center items-center bg-white text-darkBlue hover:bg-darkBlue hover:text-white transition-all duration-150"
           >
             Ürün Sat
-                  </NavLink>
-                  <NavLink
-                      to={isLogged ? "/addProduct2" : "/login"}
-                      className="btn px-10 text-base rounded-2xl py-3 font-bold text-center flex justify-center items-center bg-white text-darkBlue hover:bg-darkBlue hover:text-white transition-all duration-150"
-                  >
-                      Talep Aç
-                  </NavLink>
+          </NavLink>
         </div>
       </div>
       <div className="w-11/12 m-auto my-24">
