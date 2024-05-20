@@ -41,7 +41,7 @@
 ## **Installing / Getting started (Yükleme / Projeyi çalıştırma)**
 
 
-1) git clone https://github.com/ChemieAi/Wanted.git
+1) git clone https://github.com/bilgekagant/ecommerce.git
 
 
 ### **Backend**
