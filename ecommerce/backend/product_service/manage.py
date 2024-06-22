@@ -14,7 +14,7 @@ migrate = Migrate(app, db)
 
 if __name__ == '__main__':
     with app.app_context():
-        from flask_migrate import upgrade, migrate, revision, init, branches
+        from flask_migrate import upgrade, migrate, revision, init, branches, heads
         if len(sys.argv) > 1 and sys.argv[1] == 'db':
             if len(sys.argv) > 2:
                 if sys.argv[2] == 'init':
@@ -27,6 +27,8 @@ if __name__ == '__main__':
                     revision()
                 elif sys.argv[2] == 'branches':
                     branches()
+                elif sys.argv[2] == 'heads':
+                    heads()
             else:
                 print("Usage: python manage.py db <command>")
                 print("Commands: init, migrate, upgrade")

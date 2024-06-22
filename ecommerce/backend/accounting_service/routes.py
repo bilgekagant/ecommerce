@@ -1,7 +1,8 @@
 # backend/accounting_service/routes.py
 from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import db, User
+from .models import db, User, Order
+from .matching import match_orders
 import uuid
 
 accounting_bp = Blueprint('accounting', __name__)
@@ -74,3 +75,11 @@ def list_inventory(user_id):
         'product_id': item
     } for item in (user.inventory_items or [])]  # Ensure inventory_items is a list
     return jsonify(inventory_items), 200
+
+@accounting_bp.route('/match_orders', methods=['GET'])
+def match_orders_endpoint():
+    matches = match_orders()
+    return jsonify([{
+        'buy_order_id': match[0].order_id,
+        'sell_order_id': match[1].order_id
+    } for match in matches]), 200
